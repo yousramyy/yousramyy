@@ -1,0 +1,10 @@
+runtime: python39
+entrypoint: jupyter-notebook --allow-root --no-browser --port=8080
+
+env_variables:
+  JUPYTER_ALLOW_INSECURE_WRITES: "1"
+
+handlers:
+- url: /(.+\.ipynb)
+  static_files: \1
+  upload: (.+\.ipynb)
